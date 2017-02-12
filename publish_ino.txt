@@ -1,0 +1,79 @@
+void setup(){
+
+    
+//publish.ino
+void setup() {
+  // This part is mostly the same:
+  pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
+  //pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
+ /// pinMode(D3,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
+  //pinMode(D4,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
+    pinMode(D0,INPUT);
+    pinMode(D1,INPUT);
+    pinMode(D2,INPUT);
+    pinMode(D3,INPUT);
+    pinMode(D4,OUTPUT);
+    pinMode(D5,OUTPUT);
+    pinMode(D6,OUTPUT);
+    pinMode(D7,OUTPUT);
+
+}
+
+
+// Now for the loop.
+
+void loop() {
+    
+    bool fin1 = digitalRead(D0);
+    bool fin2 = digitalRead(D1);
+    bool fin3 = digitalRead(D2);
+    bool fin4 = digitalRead(D3);
+    
+  /* In this loop function, we're going to check to see if the beam has been broken.
+  When the status of the beam changes, we'll send a Particle.publish() to the cloud
+  so that if we want to, we can check from other devices when the LED is on or off.
+
+  We'll also turn the D7 LED on when the Photoresistor detects a beam breakagse.
+  */
+
+    if (fin1 ==true) 
+        // If the beam was broken before, then this is a new status.
+        // We will send a publish to the cloud and turn the LED on.
+
+        // Send a publish to your devices...
+        Particle.publish("Status1","completed",60);
+   else{}
+
+ 
+    
+
+     if (fin2 ==true) 
+        // If the beam was broken before, then this is a new status.
+        // We will send a publish to the cloud and turn the LED on.
+
+        // Send a publish to your devices...
+        Particle.publish("Status2","completed",60);
+   else{}
+
+
+    if (fin3 ==true) 
+        // If the beam was broken before, then this is a new status.
+        // We will send a publish to the cloud and turn the LED on.
+
+        // Send a publish to your devices...
+        Particle.publish("Status3","completed",60);
+   else{}
+
+
+    
+
+    if (fin4 ==true) 
+        // If the beam was broken before, then this is a new status.
+        // We will send a publish to the cloud and turn the LED on.
+
+        // Send a publish to your devices...
+        Particle.publish("Status4","completed",60);
+   
+    else{}
+
+}

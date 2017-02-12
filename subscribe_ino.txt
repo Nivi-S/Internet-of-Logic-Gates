@@ -1,0 +1,90 @@
+//subscribe.ino
+
+void setup(){
+
+    
+//publish.ino
+void setup() {
+  // This part is mostly the same:
+  pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
+  //pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
+ /// pinMode(D3,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
+  //pinMode(D4,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
+    pinMode(D0,INPUT);
+    pinMode(D1,INPUT);
+    pinMode(D2,INPUT);
+    pinMode(D3,INPUT);
+    pinMode(D4,OUTPUT);
+    pinMode(D5,OUTPUT);
+    pinMode(D6,OUTPUT);
+    pinMode(D7,OUTPUT);
+
+}
+
+
+// Now for the loop.
+
+void loop() {
+    
+    bool fin1 = digitalRead(D0);
+    bool fin2 = digitalRead(D1);
+    bool fin3 = digitalRead(D2);
+    bool fin4 = digitalRead(D3);
+void setup() {
+  // This part is mostly the same:
+  //pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
+    pinMode(D0,INPUT);
+    pinMode(D1,INPUT);
+    pinMode(D2,INPUT);
+    pinMode(D3,INPUT);
+    pinMode(D4,OUTPUT);
+    pinMode(D5,OUTPUT);
+    pinMode(D6,OUTPUT);
+    pinMode(D7,OUTPUT);
+
+  // Here we are going to subscribe to your buddy's event using Particle.subscribe
+  Particle.subscribe("Status1", myHandler1);
+  Particle.subscribe("Status2", myHandler2);
+  Particle.subscribe("Status3", myHandler3);
+  Particle.subscribe("Status4", myHandler4);
+  // Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
+  // (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
+  // myHandler() is declared later in this app.
+
+}
+void loop() {
+    
+}
+
+
+// Now for the myHandler function, which is called when the cloud tells us that our buddy's event is published.
+void myHandler1(const char *event, const char *data)
+{
+    
+    digitalWrite(D4,HIGH);
+  
+ 
+}
+void myHandler2(const char *event, const char *data)
+{
+
+
+    
+    digitalWrite(D5, HIGH);
+ 
+}
+void myHandler3(const char *event, const char *data)
+{
+
+
+    digitalWrite(D6,HIGH);
+  
+ 
+}
+void myHandler4(const char *event, const char *data)
+{
+
+    digitalWrite(D7,HIGH);
+  
+ 
+}
